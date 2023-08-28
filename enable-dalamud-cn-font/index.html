@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>为国际服Dalamud启用中文字体支持 | Nemophila Hare Blog</title>
+
+
+    <meta name="keywords" content="Dalamud，FFXIV">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="[toc] 前言​	国际服游戏默认不包含中文字库，且Dalamud的国际服分发字体默认不包含中文一些字体，导致主界面与部分插件在一些中文状态下缺失，显示为&#x3D;&#x3D;&#x3D;，目前有两种方法为国际服Dalamud启用中文字体支持下面我会介绍这两种方法的过程与利弊。（个人推荐方法2） 方法1  为游戏补全中文中文字库​	使用Dalamud中的Penumbra插件为游戏热加载中文字库，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为国际服Dalamud启用中文字体支持">
+<meta property="og:url" content="https://hare.fun/enable-dalamud-cn-font/index.html">
+<meta property="og:site_name" content="Nemophila Hare Blog">
+<meta property="og:description" content="[toc] 前言​	国际服游戏默认不包含中文字库，且Dalamud的国际服分发字体默认不包含中文一些字体，导致主界面与部分插件在一些中文状态下缺失，显示为&#x3D;&#x3D;&#x3D;，目前有两种方法为国际服Dalamud启用中文字体支持下面我会介绍这两种方法的过程与利弊。（个人推荐方法2） 方法1  为游戏补全中文中文字库​	使用Dalamud中的Penumbra插件为游戏热加载中文字库，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/08/28/37rXPyexOkvAJKj.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/28/5OblxqkGEXS3zaM.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/28/uEOwPB6THYf4QIA.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/28/qxjzLEfkltMsTF7.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/28/SfvYHlsqXtAMkan.png">
+<meta property="og:image" content="https://s2.loli.net/2023/08/28/3PfFnHy1UJRdGBk.png">
+<meta property="article:published_time" content="2023-08-28T01:54:23.000Z">
+<meta property="article:modified_time" content="2023-08-28T02:43:45.359Z">
+<meta property="article:author" content="Nemophila Hare">
+<meta property="article:tag" content="Dalamud，FFXIV">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/08/28/37rXPyexOkvAJKj.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none">
+        
+    
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Nemophila Hare Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于我</a>
+                
+                    <a href="/artitalk/" class="navbar-menu button">闲言闲语</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于我</a>
+                
+                    <a href="/artitalk/" class="dropdown-menu button">闲言闲语</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        为国际服Dalamud启用中文字体支持
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2023/08/" class="post-meta__date button">2023-08-28</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%951-%E4%B8%BA%E6%B8%B8%E6%88%8F%E8%A1%A5%E5%85%A8%E4%B8%AD%E6%96%87%E4%B8%AD%E6%96%87%E5%AD%97%E5%BA%93"><span class="toc-text">方法1  为游戏补全中文中文字库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%952-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84Dalmaud%E6%8F%92%E4%BB%B6"><span class="toc-text">方法2 使用相关的Dalmaud插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-text">缺点</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%951-%E4%B8%BA%E6%B8%B8%E6%88%8F%E8%A1%A5%E5%85%A8%E4%B8%AD%E6%96%87%E4%B8%AD%E6%96%87%E5%AD%97%E5%BA%93"><span class="toc-text">方法1  为游戏补全中文中文字库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%952-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84Dalmaud%E6%8F%92%E4%BB%B6"><span class="toc-text">方法2 使用相关的Dalmaud插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-text">缺点</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>[toc]</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​	国际服游戏默认不包含中文字库，且Dalamud的国际服分发字体默认不包含中文一些字体，导致主界面与部分插件在一些中文状态下缺失，显示为&#x3D;&#x3D;&#x3D;，目前有两种方法为国际服Dalamud启用中文字体支持下面我会介绍这两种方法的过程与利弊。（个人推荐方法2）</p>
+<h2 id="方法1-为游戏补全中文中文字库"><a href="#方法1-为游戏补全中文中文字库" class="headerlink" title="方法1  为游戏补全中文中文字库"></a>方法1  为游戏补全中文中文字库</h2><p>​	使用Dalamud中的Penumbra插件为游戏热加载中文字库，字库可以在<a target="_blank" rel="noopener" href="https://github.com/AinaSnow/DalamudCNAdapter/raw/master/resources/ChnFontRange.ttmp2">https://github.com/AinaSnow/DalamudCNAdapter/raw/master/resources/ChnFontRange.ttmp2</a> 下载导入到Penmubra后勾选启用，在Dalamud设置里启用AXIS字体即可。<br><img src="https://s2.loli.net/2023/08/28/37rXPyexOkvAJKj.png" class="lazy" data-srcset="https://s2.loli.net/2023/08/28/37rXPyexOkvAJKj.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>游戏内字体得到了补充且稳定，但dalamud依旧缺少字体 只是一些有dalamud发出的在聊天框内的提示文字得到了补全<br><img src="https://s2.loli.net/2023/08/28/5OblxqkGEXS3zaM.png" class="lazy" data-srcset="https://s2.loli.net/2023/08/28/5OblxqkGEXS3zaM.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg=="></p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>dalamud本身的字体未得到补充依旧是&#x3D;&#x3D;&#x3D;基本属于没什么用，插件内字体依旧<img src="https://s2.loli.net/2023/08/28/uEOwPB6THYf4QIA.png" class="lazy" data-srcset="https://s2.loli.net/2023/08/28/uEOwPB6THYf4QIA.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="1.png"></p>
+<h2 id="方法2-使用相关的Dalmaud插件"><a href="#方法2-使用相关的Dalmaud插件" class="headerlink" title="方法2 使用相关的Dalmaud插件"></a>方法2 使用相关的Dalmaud插件</h2><p>​	使用<a target="_blank" rel="noopener" href="https://github.com/AinaSnow/DalamudCNAdapter">https://github.com/AinaSnow/DalamudCNAdapter</a> 该项目中的插件来为Dalamud本身替换字体来补全缺失的中文部分，右侧releases下载<a target="_blank" rel="noopener" href="https://github.com/AinaSnow/DalamudCNAdapter/releases/download/1.0.0.0/DalamudCNAdapter.zip">DalamudCNAdapter.zip</a>，下载完后解压缩放到自己想放到的位置，复制DalamudFontReplacer.dll的路径填写到Dalamud设置的开发板路径中，保存并启用设置自启动即可。<br><img src="https://s2.loli.net/2023/08/28/qxjzLEfkltMsTF7.png" class="lazy" data-srcset="https://s2.loli.net/2023/08/28/qxjzLEfkltMsTF7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="7.png"></p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><p>​	直接补全了Dalamud自己的字体 使得UI内&#x2F;插件内的中文完美显示无错误，精简了CJK中的韩文减少字体大小提高稳定性<br><img src="https://s2.loli.net/2023/08/28/SfvYHlsqXtAMkan.png" class="lazy" data-srcset="https://s2.loli.net/2023/08/28/SfvYHlsqXtAMkan.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="5.png"></p>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><p>​	稳定性较差，启动的时候有5%的概率直接炸游戏需要二次启动，且在主界面的时候无法使用右侧的悬浮栏 会99.5%炸游戏，登陆后使用&#x2F;xldev交互没任何问题，游戏内dalamud发送到聊天窗口的文字依旧受游戏本身影响。<br><img src="https://s2.loli.net/2023/08/28/3PfFnHy1UJRdGBk.png" class="lazy" data-srcset="https://s2.loli.net/2023/08/28/3PfFnHy1UJRdGBk.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="6.png"></p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>更新于 2023-08-28</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Dalamud%EF%BC%8CFFXIV/" class="post-tags__link button"># Dalamud，FFXIV</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/dream/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            Dream
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 <a href="/">Nemophila Hare Blog</a>
+        </p>
+    
+    
+        
+            <p><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">豫ICP备15004630号-2</a></p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://unpkg.com/valine@latest/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"TRCcH7GCl1bhisgC2MJdtBcD-gzGzoHsz","appKey":"JHa7gOJd5bT0pkf7BrOnSM0x","placeholder":"说点什么吧~","path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":null,"visitor":null,"highlight":null,"avatarForce":null,"recordIP":true,"serverURLs":"https://re2rrpfp.lc-cn-n1-shared.com","enableQQ":true,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
